@@ -34,7 +34,7 @@ AkilliDizi<T>::AkilliDizi(const T* intDizi, unsigned int elemanSayisi) {
 template<class T>
 AkilliDizi<T>::AkilliDizi(const vector<T>& intVector) {
 
-	intVector.size() = elemanSayisi;
+	elemanSayisi = intVector.size();
 	kapasite = elemanSayisi;
 	veri = new T[elemanSayisi];
 	if (veri == nullptr)
