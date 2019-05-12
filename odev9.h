@@ -4,21 +4,22 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-
-typedef struct
+template<class T>
+struct Pair
 {
-	int eleman;
-	int adet;
-} Pair; // histogramda her bir elemandan kacar adet oldugunu gosterebilecek veri tipi 
-template<typename T>
+	T eleman;
+	unsigned int adet;
+}; // histogramda her bir elemandan kacar adet oldugunu gosterebilecek veri tipi 
+template<class T>
 class AkilliDizi /* TEMPLATE OLACAK */
 {
 	// Dizinin tum elemanlarini ekrana basabilecek sekilde << operatorunu asiri yukleyiniz
 	//TEMPLATE OLACAK
+	template<class T>
 	friend ostream& operator<<(ostream& out, const AkilliDizi<T>& other);
 public:
 	AkilliDizi(); /* bos bir akilli dizi olusturur*/
-	AkilliDizi(T i); /* tek elamanlý ve eleman degeri i olan bir akilli dizi olusturur
+	AkilliDizi(T i); /* tek elamanlÄ± ve eleman degeri i olan bir akilli dizi olusturur
 	TEMPLATE OLACAK*/
 	AkilliDizi(const T* intDizi, unsigned int elemanSayisi); /* elemanSayisi elamanli bir
 	akilli dizi olusturur ve intDizi elamanlarini akilli diziye atar TEMPLATE OLACAK*/
@@ -35,17 +36,17 @@ public:
 	/* Akilli diye bir int degeri ekleyebilecek sekilde + operatorunu yukleyin TEMPLATE
 	OLACAK*/
 	void sirala(); /* diziyi buyukten kucuge siralar TEMPLATE OLACAK*/
-	void histogram(vector<Pair>& hist) const; /* veri icinde gecen her bir elemanin kac kez
+	//void histogram(vector<pairadet>& hist) const; /* veri icinde gecen her bir elemanin kac kez
 	//oldugunu bulur ve bunu vektor<Pair> olarak donderir TEMPLATE OLACAK*/
 
-	unsigned kacTane(T i) const; /* veri icinde i degerinden kac tane olduðunu sayar
+	//unsigned kacTane(T i) const; /* veri icinde i degerinden kac tane olduÄŸunu sayar
 	//TEMPLATE OLACAK*/
-	bool varMi(T i) const; /* veri icinde i degeri mevcutsa dogru degilse yanlis donderir
+	//bool varMi(T i) const; /* veri icinde i degeri mevcutsa dogru degilse yanlis donderir
 	//TEMPLATE OLACAK*/
 private:
 	T* veri; /* veriyi dinamik olarak tutar TEMPLATE OLACAK*/
 	unsigned int kapasite; /* Kapasite doldugunda yeni alinacak yer mevcut kapasitenin yarisi
-	olmali. Ýhtiyac daha
+	olmali. Ä°htiyac daha
 
 	fazlaysa ihtiyac + mevcut kapasitenin yarisi kadar
 
